@@ -1,0 +1,2 @@
+Parent process writes this line.
+Child process writes this line.

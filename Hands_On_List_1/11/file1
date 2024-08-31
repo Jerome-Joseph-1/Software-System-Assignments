@@ -1,0 +1,4 @@
+Appended using original fd
+Appended using dup
+Appended using dup2
+Appended using fcntl
