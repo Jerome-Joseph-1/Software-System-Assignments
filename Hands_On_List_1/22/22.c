@@ -39,17 +39,17 @@ int main() {
     }
 
     if (pid == 0) {
-        ssize_t len = strlen(child_message);
-        ssize_t written = write(fd, child_message, len);
+        int len = strlen(child_message);
+        int written = write(fd, child_message, len);
         if (written != len) {   
-            perror("write (child)");
+            perror("write failed (child)");
         }
         close(fd);
     } else {
-        ssize_t len = strlen(parent_message);
-        ssize_t written = write(fd, parent_message, len);
+        int len = strlen(parent_message);
+        int written = write(fd, parent_message, len);
         if (written != len) {
-            perror("write (parent)");
+            perror("write failed (parent)");
         }
         close(fd);
     }

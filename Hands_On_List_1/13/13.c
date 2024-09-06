@@ -33,7 +33,7 @@ int main() {
         return -1;
     } else if (result == 0) {
         printf("No data received within 10 seconds.\n");
-    } else if (FD_ISSET(STDIN_FILENO, &readfds)) {
+    } else if (FD_ISSET(0, &readfds)) {
         printf("Data received within 10 seconds!\n");
         char buffer[1024];
         if (fgets(buffer, sizeof(buffer), stdin) != NULL) {

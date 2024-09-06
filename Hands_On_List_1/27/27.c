@@ -18,15 +18,15 @@ Date: 31st Aug, 2024.
 
 void execute_using_execl() {
     printf("Executing `ls -Rl` using execl:\n");
-    int retval = execl("/bin/ls", "ls", "-Rl", (char *) NULL);
+    int retval = execl("/bin/ls", "ls", "-Rl", NULL);
 
     if(retval == -1) 
         perror("Error");
-}
+}   
 
 void execute_using_execlp() {
     printf("Executing `ls -Rl` using execlp:\n");
-    int retval = execlp("ls", "ls", "-Rl", (char *) NULL);
+    int retval = execlp("ls", "ls", "-Rl", NULL);
 
     if(retval == -1) 
         perror("Error");
@@ -36,7 +36,7 @@ void execute_using_execle() {
     printf("Executing `ls -Rl` using execle:\n");
     char *envp[] = { "PATH=/bin:/usr/bin", NULL };
 
-    int retval = execle("/bin/ls", "ls", "-Rl", (char *) NULL, envp);
+    int retval = execle("/bin/ls", "ls", "-Rl", NULL, envp);
 
     if(retval == -1) 
         perror("Error");

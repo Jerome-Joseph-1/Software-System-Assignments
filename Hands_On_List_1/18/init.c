@@ -10,7 +10,7 @@ int main() {
         {.data = "Record Three"},
     };
 
-    int fd = open("records", O_CREAT | O_EXCL | O_RDWR, 0644);
+    int fd = open("records", O_CREAT | O_TRUNC | O_RDWR, 0644);
 
     write(fd, r, sizeof(r));
 

@@ -20,13 +20,13 @@ int main(int argc, char** argv) {
     if(argc == 2) {
 
         int fd, fd_dup1, fd_dup2, fd_fcntl;
-    char *filename = argv[1];
+        char *filename = argv[1];
         char *data1 = "Appended using original fd\n";
         char *data2 = "Appended using dup\n";
         char *data3 = "Appended using dup2\n";
         char *data4 = "Appended using fcntl\n";
 
-        fd = open(filename, O_WRONLY | O_APPEND | O_CREAT | O_TRUNC, 0644);
+        fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         if (fd < 0) {
             perror("Error opening file");
             return -1;

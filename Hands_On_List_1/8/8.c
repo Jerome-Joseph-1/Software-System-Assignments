@@ -25,26 +25,16 @@ int main(int argc, char** argv) {
         int buffer_size = 1024;
         char buffer[buffer_size];
 
-        int bytes_read, start = 0;
+        int bytes_read;
 
         while((bytes_read = read(fd, buffer, buffer_size)) > 0) {
-            for (int i = 0; i < bytes_read; i++) {
-                if (buffer[i] == '\n') {
-                    write(1, buffer + start, i - start + 1);
-                    start = i + 1;
-                }
+            if(bytes_read != write(1, buffer, bytes_read)) {
+                perror("Failed to write to file");
+                return 1;
             }
-            if (start < bytes_read) {
-                write(1, buffer + start, bytes_read - start);
-            }
-            start = 0;
         }
 
         close(fd);
-        if (bytes_read < 0) {
-            perror("Error reading file");
-            return -1;
-        }
     } else {
         printf("Usage: [executable] [filename]\n");
     }

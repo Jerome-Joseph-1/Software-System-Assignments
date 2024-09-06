@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     if(argc == 2) {
         char* filename = argv[1];
 
-        int fd = open(filename, O_RDWR, S_IRWXU);
+        int fd = open(filename, O_RDWR);
 
         if(-1 == fd) {
             perror("Error");

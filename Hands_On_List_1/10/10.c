@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     if(argc == 2) {
         char* filename = argv[1];
 
-        int fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644)   ;
+        int fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
 
         if(fd < 0) {
             perror("Error opening the file");
