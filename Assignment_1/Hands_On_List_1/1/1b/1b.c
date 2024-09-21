@@ -5,7 +5,7 @@ Author : Jerome Joseph
 Description : Create the following types of a files using system call
     b. hard link (link system call)
 Date: 31st Aug, 2024.
-=========================   ===================================================
+============================================================================
 */
 
 #include <stdio.h>
